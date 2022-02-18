@@ -1,0 +1,24 @@
+traverse from both sides and find the maximum product
+
+
+class Solution:
+    def maxProduct(self, nums: List[int]) -> int:
+        maxp=-9999999999999999
+        n=len(nums)
+        prod=1
+        for i in range(n):
+            prod=prod*nums[i]
+           # prod=curr
+            maxp=max(prod,maxp)
+            #print(maxp)
+            if nums[i]==0:
+                prod=1
+        prod=1
+        for i in range(n-1,-1,-1):
+            prod=prod*nums[i]
+            maxp=max(prod,maxp)
+            #print(maxp)
+            if nums[i]==0:
+                prod=1
+        return maxp        
+       
