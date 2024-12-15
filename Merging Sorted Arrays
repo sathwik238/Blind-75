@@ -1,0 +1,17 @@
+class Solution:
+    def merge(self, nums1: List[int], m: int, nums2: List[int], n: int) -> None:
+        """
+        Do not return anything, modify nums1 in-place instead.
+        """
+        fl_i = m - 1 
+        sl_i = n - 1
+        index = m+n -1
+
+        while(sl_i >=0):
+            if fl_i>=0 and  nums1[fl_i] > nums2[sl_i]:
+                nums1[index] = nums1[fl_i]
+                fl_i = fl_i -1
+            else:
+                nums1[index] = nums2[sl_i]
+                sl_i = sl_i -1
+            index = index -1
