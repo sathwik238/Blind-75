@@ -1,0 +1,30 @@
+Given an integer array nums and an integer val, remove all occurrences of val in nums in-place. The order of the elements may be changed. Then return the number of elements in nums which are not equal to val.
+
+class Solution:
+    def removeElement(self, nums: List[int], val: int) -> int:
+
+        k = len(nums)
+        start = 0
+        end = len(nums) - 1
+
+        while(start<=end):
+            if nums[end] == val:
+                end = end - 1
+                k = k -1
+            elif nums[start] == val:
+                temp = nums[start]
+                nums[start] = nums[end]
+                nums[end] = temp
+            else:
+                start = start + 1
+
+        # print(val)
+        # for i in range(len(nums)):
+        #     if nums[i]!=val:
+        #         k+=1
+        #     print(nums[i])
+        print(k)
+        print(nums)
+        return k
+
+        
