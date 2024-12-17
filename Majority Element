@@ -1,0 +1,34 @@
+class Solution:
+    def majorityElement(self, nums: List[int]) -> int:
+        print(sorted(nums))
+        nums = sorted(nums)
+        
+        max_count_element = nums[0]
+        max_count = 1
+        
+        count = 1
+        for index in range(len(nums)-1):
+            print("Current global max element: ", max_count_element)
+            print("Current global max element count: ", max_count)
+
+            print(count) 
+            
+
+            if nums[index] == nums[index+1]:
+                count = count + 1
+            else:
+                count = 1
+
+            if count > max_count:
+                max_count =count
+                max_count_element = nums[index]
+        print("Final global max element: ", max_count_element)
+        print("Final global max element count: ", max_count)
+
+        return max_count_element
+
+
+class Solution:
+    def majorityElement(self, nums: List[int]) -> int:
+        
+        return sorted(nums)[len(nums)//2]
