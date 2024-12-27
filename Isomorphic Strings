@@ -1,0 +1,26 @@
+class Solution:
+    def isIsomorphic(self, s: str, t: str) -> bool:
+        i = 0
+        mapping_dict=dict()
+        stack =[]
+        while(i<len(s)):
+
+            
+            
+            if s[i] not in mapping_dict.keys()  :
+                if t[i] not in mapping_dict.values():
+                    mapping_dict[s[i]] = t[i]
+                else:
+                    return False
+                    
+            else:
+                if mapping_dict[s[i]] != t[i]:
+                    return False
+            i = i+1
+            
+            # print(mapping_dict)
+        return True
+
+            
+
+        
