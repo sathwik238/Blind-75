@@ -1,0 +1,23 @@
+class Solution:
+    def wordPattern(self, pattern: str, s: str) -> bool:
+        print(list(pattern))
+        s = s.split(" ")
+        mapping_dict = dict()
+        i = 0 
+        if len(s) != len(pattern):
+            return False
+        while(i<len(pattern)) :
+            if pattern[i] not in mapping_dict.keys():
+                if s[i] in mapping_dict.values():
+                    return False
+                else:
+                    mapping_dict[pattern[i]] = s[i]
+            else:
+                if mapping_dict[pattern[i]] != s[i]:
+                    return False
+            i = i +1
+            
+        return True
+             
+
+        
