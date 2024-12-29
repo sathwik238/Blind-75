@@ -1,0 +1,16 @@
+class Solution:
+    def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
+
+        dict_map =dict()
+        for i in range(len(strs)):
+            sorted_element = "".join(sorted(strs[i]))
+            if sorted_element not in dict_map.keys():
+                dict_map[sorted_element] = [i]
+            else:
+                dict_map[sorted_element].append(i)
+
+        result = []
+        for i in dict_map.values():
+            result.append([strs[idx] for idx in i])
+
+        return result
