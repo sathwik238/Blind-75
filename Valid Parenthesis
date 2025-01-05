@@ -1,0 +1,27 @@
+class Solution:
+    def isValid(self, s: str) -> bool:
+        closing = ('}', ']',')')
+        i = 0
+        stack = []
+        while(i<len(s)):
+            # print(i,stack, len(stack), s[i] in closing)
+            if len(stack) == 0:
+                if s[i] in closing:
+                    return False
+                else:
+                    stack.insert(0,s[i])
+
+            else:
+                if (s[i] == '}' and stack[0] == '{') or (s[i] == ')' and stack[0] == '(') or (s[i] == ']' and stack[0] == '[') :
+                    stack.pop(0)
+                else:
+                    stack.insert(0,s[i])
+
+            # print(i,stack, len(stack), s[i] in closing)
+            
+            i = i + 1
+
+        if len(stack) ==0:
+            return True
+        else:
+            return False
